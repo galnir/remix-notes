@@ -3,6 +3,7 @@ import type { ActionFunction } from "@remix-run/node";
 import { Form } from "@remix-run/react";
 import styled from "styled-components";
 import { db } from "~/utils/db.server";
+import { requireUserId } from "~/utils/session.server";
 
 function validateNoteDescription(description: string) {
   if (description.length < 5) {
@@ -44,10 +45,12 @@ export const action: ActionFunction = async ({ request }) => {
     return badRequest({ fieldErrors, fields });
   }
 
+  const userId = await requireUserId(request);
+
   const note = await db.note.create({
     data: {
       ...fields,
-      userId: "c1c779ef-ab75-461f-8024-d6357fc89cf6",
+      userId,
     },
   });
   return redirect(`/notes/${note.id}`);
