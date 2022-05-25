@@ -173,7 +173,9 @@ export default function Login() {
               <p role="alert" id="username-error">
                 {actionData.fieldErrors.username}
               </p>
-            ) : null}
+            ) : (
+              <>&nbsp;</>
+            )}
           </FormField>
           <FormField>
             <label htmlFor="password-input">Password</label>
@@ -191,14 +193,18 @@ export default function Login() {
               <p role="alert" id="password-error">
                 {actionData.fieldErrors.password}
               </p>
-            ) : null}
+            ) : (
+              <>&nbsp;</>
+            )}
           </FormField>
           <div id="form-error-message">
             {actionData?.formError ? (
               <p className="form-validation-error" role="alert">
                 {actionData.formError}
               </p>
-            ) : null}
+            ) : (
+              <>&nbsp;</>
+            )}
           </div>
           <FormButtonWrapper>
             <FormButton type="submit">Submit</FormButton>
@@ -233,7 +239,7 @@ const Container = styled.div`
 `;
 
 const FormWrapper = styled.div`
-  width: fit-content;
+  width: 400px;
   height: fit-content;
   padding: 6px;
   display: flex;

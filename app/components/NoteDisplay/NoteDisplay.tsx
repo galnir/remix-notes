@@ -14,10 +14,11 @@ function NoteDisplay({ note }: NoteDisplayProps) {
   );
 }
 
+const Container = styled.div``;
+
 const NoteWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  color: red;
 `;
 
 export default NoteDisplay;
