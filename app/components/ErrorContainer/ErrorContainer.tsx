@@ -6,7 +6,7 @@ function ErrorContainer({ children }: { children: React.ReactNode }) {
 
 const Wrapper = styled.div`
   width: 100%;
-  background-color: #f7f7f7;
+  background-color: #bc2e2e;
   border-radius: 4px;
   color: white;
   padding: 1rem;
