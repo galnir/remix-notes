@@ -35,7 +35,9 @@ export default function NotesIndexRoute() {
     return (
       <NoteWrapper key={note.id}>
         <NoteDisplay note={note} />
-        <Link to={note.id + ""}>"{note.title}" Permalink</Link>
+        <Link rel="prefetch" to={note.id + ""}>
+          "{note.title}" Permalink
+        </Link>
       </NoteWrapper>
     );
   });

@@ -1,7 +1,7 @@
 import type { Note } from "@prisma/client";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useParams } from "@remix-run/react";
 import styled from "styled-components";
 import NoteDisplay from "~/components/NoteDisplay";
 import { db } from "~/utils/db.server";
@@ -42,6 +42,14 @@ export default function NoteRoute() {
         <NoteDisplay note={data.note} />
       </Container>
     </>
+  );
+}
+
+export function ErrorBoundary() {
+  const { noteId } = useParams();
+
+  return (
+    <div className="error-container">{`An error occured while trying to load note id ${noteId}. Bummer :(`}</div>
   );
 }
 

@@ -82,6 +82,14 @@ export default function NewNote() {
   );
 }
 
+export function ErrorBoundary() {
+  return (
+    <div className="error-container">
+      Something went wrong, please try again later.
+    </div>
+  );
+}
+
 const FormItems = styled.div`
   display: flex;
   flex-direction: column;

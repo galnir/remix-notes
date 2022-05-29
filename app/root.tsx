@@ -25,21 +25,47 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export default function App() {
+function Document({
+  children,
+  title = `Notes App`,
+}: {
+  children: React.ReactNode;
+  title?: string;
+}) {
   return (
     <html lang="en" style={{ fontFamily: "open-sans, sans-serif" }}>
       <head>
+        <title>{title}</title>
         <Meta />
         <Links />
         {typeof document === "undefined" ? "__STYLES__" : null}
         <GlobalStyles />
       </head>
       <body>
-        <Outlet />
+        {children}
+        <LiveReload />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
+  );
+}
+
+export default function App() {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
+  );
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  return (
+    <Document title="Uh-oh!">
+      <div className="error-container">
+        <h1>App Error</h1>
+        <pre>{error.message}</pre>
+      </div>
+    </Document>
   );
 }

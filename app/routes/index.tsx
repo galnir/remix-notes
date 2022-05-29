@@ -12,6 +12,10 @@ export default function Index() {
   );
 }
 
+export function ErrorBoundary() {
+  return <div className="error-container">An error occured</div>;
+}
+
 const IndexTitle = styled.h1`
   color: green;
 `;
