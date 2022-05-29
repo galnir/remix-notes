@@ -8,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import ErrorContainer from "./components/ErrorContainer";
 import GlobalStyles from "./components/GlobalStyles";
 
 export const meta: MetaFunction = () => ({
@@ -62,10 +63,10 @@ export default function App() {
 export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document title="Uh-oh!">
-      <div className="error-container">
+      <ErrorContainer>
         <h1>App Error</h1>
         <pre>{error.message}</pre>
-      </div>
+      </ErrorContainer>
     </Document>
   );
 }

@@ -3,6 +3,7 @@ import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData, useParams } from "@remix-run/react";
 import styled from "styled-components";
+import ErrorContainer from "~/components/ErrorContainer";
 import NoteDisplay from "~/components/NoteDisplay";
 import { db } from "~/utils/db.server";
 
@@ -49,7 +50,7 @@ export function ErrorBoundary() {
   const { noteId } = useParams();
 
   return (
-    <div className="error-container">{`An error occured while trying to load note id ${noteId}. Bummer :(`}</div>
+    <ErrorContainer>{`An error occured while trying to load note id ${noteId}. Bummer :(`}</ErrorContainer>
   );
 }
 

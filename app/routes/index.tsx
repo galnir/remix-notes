@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "@remix-run/react";
+import ErrorContainer from "~/components/ErrorContainer";
 
 export default function Index() {
   return (
@@ -13,7 +14,7 @@ export default function Index() {
 }
 
 export function ErrorBoundary() {
-  return <div className="error-container">An error occured</div>;
+  return <ErrorContainer>An error occured</ErrorContainer>;
 }
 
 const IndexTitle = styled.h1`

@@ -4,6 +4,7 @@ import { Form } from "@remix-run/react";
 import styled from "styled-components";
 import { db } from "~/utils/db.server";
 import { requireUserId } from "~/utils/session.server";
+import ErrorContainer from "~/components/ErrorContainer";
 
 function validateNoteDescription(description: string) {
   if (description.length < 5) {
@@ -84,9 +85,9 @@ export default function NewNote() {
 
 export function ErrorBoundary() {
   return (
-    <div className="error-container">
+    <ErrorContainer>
       Something went wrong, please try again later.
-    </div>
+    </ErrorContainer>
   );
 }
 
